@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import'dart:convert';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 class DataSearch extends SearchDelegate{
 
@@ -31,7 +30,7 @@ class DataSearch extends SearchDelegate{
         },
       ),
     ];
-    throw UnimplementedError();
+    
   }
 
   @override
@@ -46,7 +45,7 @@ class DataSearch extends SearchDelegate{
         close(context, null);
       },
     );
-    throw UnimplementedError();
+    
   }
 
   @override
@@ -82,7 +81,7 @@ class DataSearch extends SearchDelegate{
                           ClipRRect(
                             borderRadius: BorderRadius.circular(8.0),
                             child: Image(
-                              image: AssetImage('assets/'+emp['images'][index%2]),
+                              image: AssetImage('assets/'+emp['images'][emp['titles'].indexOf(Emp[index])]),
                             ),
                           ),
                           SizedBox(height: 10,),
@@ -99,8 +98,8 @@ class DataSearch extends SearchDelegate{
                     onTap: (){
                       Navigator.pushNamed(context, '/mainBlog',arguments: {
                         'title':Emp[index],
-                        'image':emp['images'][index%2],
-                        'content':emp['content'][index%2]
+                        'image':emp['images'][emp['titles'].indexOf(Emp[index])],
+                        'content':emp['content'][emp['titles'].indexOf(Emp[index])]
                       });
                     },
                   )
@@ -114,7 +113,7 @@ class DataSearch extends SearchDelegate{
 
         )
     );
-    throw UnimplementedError();
+    
   }
 
 }
